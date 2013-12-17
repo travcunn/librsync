@@ -39,6 +39,7 @@
  * See \ref intro for an introduction to use of this library.
  */
 
+
 #ifndef _RSYNC_H
 #define _RSYNC_H
 
@@ -338,6 +339,7 @@ typedef enum rs_work_options {
 } rs_work_options;
 
 
+LIBRSYNC_API
 rs_result       rs_job_iter(rs_job_t *, rs_buffers_t *);
 
 typedef rs_result rs_driven_cb(rs_job_t *job, rs_buffers_t *buf,
@@ -349,14 +351,18 @@ rs_result rs_job_drive(rs_job_t *job, rs_buffers_t *buf,
 
 const rs_stats_t * rs_job_statistics(rs_job_t *job);
 
+LIBRSYNC_API
 rs_result       rs_job_free(rs_job_t *);
 
 int             rs_accum_value(rs_job_t *, char *sum, size_t sum_len);
 
+LIBRSYNC_API 
 rs_job_t *rs_sig_begin(size_t new_block_len, size_t strong_sum_len);
 
+LIBRSYNC_API 
 rs_job_t *rs_delta_begin(rs_signature_t *);
 
+LIBRSYNC_API 
 rs_job_t *rs_loadsig_begin(rs_signature_t **);
 
 /**
